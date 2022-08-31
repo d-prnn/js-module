@@ -29,9 +29,10 @@ input,
 
 button {
   background-image: linear-gradient(
-    179.4deg,
-    rgba(12, 20, 69, 1) -16.9%,
-    rgba(71, 30, 84, 1) 119.9%
+    to top,
+    #1e3c72 0%,
+    #1e3c72 1%,
+    #2a5298 100%
   );
   color: white;
 
