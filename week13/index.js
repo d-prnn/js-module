@@ -1,6 +1,6 @@
 function sayGreet() {
   let userName = prompt("What's your name?", "Username");
-  alert(`Hello, ${userName}! Let's start!`);
+  if (userName) alert(`Hello, ${userName}! Let's start!`);
 }
 
 function add() {
