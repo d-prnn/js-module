@@ -56,3 +56,14 @@ slider.addEventListener('animationend', () => {
   btnPrev.addEventListener('click', moveLeft);
   btnNext.addEventListener('click', moveRight);
 });
+
+// change color
+
+let boxes = document.querySelectorAll('.box');
+console.log(boxes);
+
+boxes.forEach((elem) =>
+  elem.addEventListener('click', () => {
+    elem.classList.toggle('colored');
+  })
+);
