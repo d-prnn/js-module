@@ -67,3 +67,18 @@ boxes.forEach((elem) =>
     elem.classList.toggle('colored');
   })
 );
+
+// open new site
+
+const windowBtn = document.querySelector('.window');
+const newWindow = document.querySelector('.new-window');
+
+// в той же вкладке
+windowBtn.addEventListener('click', () => {
+  window.location.href = 'https://www.google.com/';
+});
+
+// в новой вкладке
+newWindow.addEventListener('click', () => {
+  window.open('https://www.google.com/');
+});

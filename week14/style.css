@@ -118,3 +118,16 @@ button {
 .colored {
   background-color: fuchsia;
 }
+
+/* new window */
+
+.window,
+.new-window {
+  width: max-content;
+  padding: 10px;
+  margin: 20px auto;
+
+  display: block;
+
+  border: 1px solid navy;
+}
