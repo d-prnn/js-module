@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("assets/background.png");
+
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
+.button {
+  height: 34px;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+
+  color: #586870;
+
+  cursor: pointer;
+}
+
+fieldset {
+  all: unset;
+  box-sizing: border-box;
+}
+
+input {
+  all: unset;
+  box-sizing: border-box;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.wrapper {
+  width: 43.75%;
+  margin: 20px auto;
+
+  border: 30px solid rgba(255, 255, 255, 0.44);
+  backdrop-filter: blur(3px);
+  border-radius: 40px;
+
+  @media screen and (max-width: 1280px) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 390px) {
+    border: 10px solid rgba(255, 255, 255, 0.44);
+  }
+}
+.content {
+  padding: 20px 40px;
+  background-color: white;
+  border-radius: 10px;
+
+  @media screen and (max-width: 390px) {
+    padding: 10px;
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  &__buttons {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__button {
+    position: relative;
+    padding: 5px;
+  }
+
+  &__button.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    background-image: radial-gradient(
+      1125% 55200.1% at 59.37% -450%,
+      #5957ba 0%,
+      rgba(89, 87, 186, 0) 100%
+    );
+    border-radius: 13px;
+  }
+}
+.main__form {
+  display: flex;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+.form {
+  position: relative;
+  padding-right: 80px;
+  flex: 1 1 50%;
+
+  @media screen and (max-width: 1280px) {
+    padding-right: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0.5px;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(192, 198, 201, 0.1) 0%,
+      #00000050 53.79%,
+      rgba(192, 198, 201, 0.1) 100%
+    );
+
+    @media screen and (max-width: 768px) {
+      content: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__title {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+
+    color: #586870;
+  }
+
+  &__input {
+    height: 34px;
+    width: 100%;
+
+    padding: 5px 10px;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    border: 0.5px solid #c0c6c9;
+    border-radius: 8px;
+    color: #586870;
+  }
+
+  // .form__submit
+
+  &__submit {
+    margin: 0 auto;
+
+    color: white;
+    background: linear-gradient(
+      180deg,
+      rgba(110, 108, 224, 0.3) 0%,
+      rgba(77, 76, 173, 0.3) 100%
+    );
+    border-radius: 8px;
+  }
+}
+
+.error-message {
+  min-height: 24px;
+  padding: 5px 0;
+
+  font-size: 10px;
+  color: rebeccapurple;
+}
+.social {
+  padding-left: 80px;
+  flex: 1 1 50%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+
+  @media screen and (max-width: 1280px) {
+    padding-left: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
+
+  &__title {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* grey/dark */
+
+    color: #586870;
+  }
+
+  // .social__button
+
+  &__button {
+    min-width: 100%;
+
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid #5957ba;
+    border-radius: 8px;
+  }
+
+  // .social__img
+
+  &__img {
+    margin: 0 auto;
+  }
+}
