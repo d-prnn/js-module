@@ -94,7 +94,7 @@ function checkEmail(event) {
 function checkPassword(event) {
   let result = event.target.value;
 
-  if (result.length > 8) {
+  if (result.length > 7) {
     event.target.nextElementSibling.textContent = "";
 
     if (result.match(/[a-z]/g) !== null) {
