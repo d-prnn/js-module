@@ -216,3 +216,7 @@ input {
 .social__img {
   margin: 0 auto;
 }
+
+.confirm {
+  text-align: center;
+}

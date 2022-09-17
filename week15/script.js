@@ -1,5 +1,7 @@
 "use strict";
 
+const header = document.querySelector(".header");
+const form = document.querySelector(".main__form");
 const inputs = document.querySelectorAll(".form__input");
 const errorMessages = document.querySelectorAll(".error-message");
 const btnSubmit = document.querySelector(".form__submit");
@@ -11,17 +13,46 @@ const phoneNumber = document.getElementById("phoneNumber");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
-console.log(inputs);
-console.log(firstName, lastName, phoneNumber, email, password);
+let inputsArray = [];
 
-function checkInputs(event) {
-  inputs.forEach((input) => {
+function toArray(notArray, array) {
+  for (let i = 0; i < notArray.length; i++) {
+    array.push(notArray[i]);
+  }
+}
+
+toArray(inputs, inputsArray);
+
+function registration(event) {
+  if (
+    inputsArray.every((input) => input.nextElementSibling.textContent === "") &&
+    inputsArray.every((input) => input.value !== "")
+  ) {
+    confirm();
+  } else {
+    checkInputs();
+  }
+}
+
+function checkInputs() {
+  inputsArray.forEach((input) => {
     if (input.value === "") {
       input.nextElementSibling.textContent = "❗ Required field";
+    } else if (input.nextElementSibling.textContent !== "") {
+      input.nextElementSibling.textContent += "";
     } else {
       input.nextElementSibling.textContent = "";
     }
   });
+}
+
+function confirm() {
+  let confirm = document.createElement("p");
+  confirm.className = "confirm";
+  confirm.innerHTML =
+    "You have successfully registered.<br /> A confirmation link has been sent to your email 💌";
+
+  form.replaceWith(confirm);
 }
 
 function checkName(event) {
@@ -33,6 +64,7 @@ function checkName(event) {
     result = result.replace(/[^a-zA-ZА-Яа-яЁё]/gi, "");
     event.target.value = result;
   }
+  event.target.nextElementSibling.textContent = "";
   return result;
 }
 
@@ -55,6 +87,8 @@ function checkPhone(event) {
         case "9":
           event.target.value = "+7 " + event.target.value; // + event.target.value.slice;
           break;
+        default:
+          event.target.value = "+" + event.target.value;
       }
     } else if (event.target.value[0] === "+") {
       return (event.target.value = "+" + event.target.value.slice(1)); // для нероссийских номеров начинать с +
@@ -136,4 +170,4 @@ phoneNumber.addEventListener("change", checkPhoneLength);
 email.addEventListener("change", checkEmail);
 password.addEventListener("change", checkPassword);
 
-btnSubmit.addEventListener("click", checkInputs);
+btnSubmit.addEventListener("click", registration);
