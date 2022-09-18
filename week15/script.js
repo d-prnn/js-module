@@ -163,6 +163,49 @@ function checkPassword(event) {
   }
 }
 
+function changeForm(event) {
+  switch (event.target.value) {
+    case "sign-in":
+      btnSignUp.classList.remove("active");
+      btnSignIn.classList.add("active");
+      firstName.parentElement.classList.add("hidden");
+      lastName.parentElement.classList.add("hidden");
+      phoneNumber.parentElement.classList.add("hidden");
+      email.removeEventListener("change", checkEmail);
+      password.removeEventListener("change", checkPassword);
+      btnSubmit.removeEventListener("click", registration);
+      btnSubmit.textContent = "Sign In";
+      document.querySelector(".via").textContent = "or Sign In via";
+      document
+        .querySelector(".terms-and-conditions")
+        .parentElement.classList.add("hidden");
+      inputsArray.forEach((input) => {
+        input.value = "";
+        input.nextElementSibling.textContent = "";
+      });
+      break;
+    case "sign-up":
+      btnSignUp.classList.add("active");
+      btnSignIn.classList.remove("active");
+      firstName.parentElement.classList.remove("hidden");
+      lastName.parentElement.classList.remove("hidden");
+      phoneNumber.parentElement.classList.remove("hidden");
+      email.addEventListener("change", checkEmail);
+      password.addEventListener("change", checkPassword);
+      btnSubmit.addEventListener("click", registration);
+      btnSubmit.textContent = "Sign Up";
+      document.querySelector(".via").textContent = "or Sign Up via";
+      document
+        .querySelector(".terms-and-conditions")
+        .parentElement.classList.remove("hidden");
+      inputsArray.forEach((input) => {
+        input.value = "";
+        input.nextElementSibling.textContent = "";
+      });
+      break;
+  }
+}
+
 firstName.addEventListener("input", checkName);
 lastName.addEventListener("input", checkName);
 phoneNumber.addEventListener("input", checkPhone);
@@ -171,3 +214,6 @@ email.addEventListener("change", checkEmail);
 password.addEventListener("change", checkPassword);
 
 btnSubmit.addEventListener("click", registration);
+
+btnSignIn.addEventListener("click", changeForm);
+btnSignUp.addEventListener("click", changeForm);

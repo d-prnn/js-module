@@ -39,11 +39,6 @@ input {
   box-sizing: border-box;
 }
 
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .wrapper {
   width: 43.75%;
   margin: 20px auto;
@@ -168,6 +163,14 @@ input {
   color: white;
   background: linear-gradient(180deg, rgba(110, 108, 224, 0.3) 0%, rgba(77, 76, 173, 0.3) 100%);
   border-radius: 8px;
+  transition: all 0.5s;
+}
+.form__submit:hover {
+  background: linear-gradient(180deg, rgb(110, 108, 224) 0%, rgb(77, 76, 173) 100%);
+}
+
+.hidden {
+  display: none;
 }
 
 .error-message {
@@ -219,4 +222,10 @@ input {
 
 .confirm {
   text-align: center;
+}
+
+.terms-and-conditions {
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
 }

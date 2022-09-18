@@ -43,11 +43,6 @@ input {
   box-sizing: border-box;
 }
 
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .wrapper {
   width: 43.75%;
   margin: 20px auto;
@@ -187,7 +182,20 @@ input {
       rgba(77, 76, 173, 0.3) 100%
     );
     border-radius: 8px;
+    transition: all 0.5s;
   }
+
+  &__submit:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(110, 108, 224, 1) 0%,
+      rgba(77, 76, 173, 1) 100%
+    );
+  }
+}
+
+.hidden {
+  display: none;
 }
 
 .error-message {
@@ -249,4 +257,10 @@ input {
 
 .confirm {
   text-align: center;
+}
+
+.terms-and-conditions {
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
 }
