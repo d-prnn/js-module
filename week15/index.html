@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week15</title>
+  </head>
+  <body>
+    <header>
+      <h1>Week15, Simple Form</h1>
+      <select class="theme" name="theme" id="theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </header>
+    <main>
+      <section>
+        <div class="wrapper">
+          <div class="content">
+            <div class="header">
+              <div class="header__buttons">
+                <button class="header__button button sign-in" value="sign-in">Sign In</button>
+                <button class="header__button button active sign-up" value="sign-up">Sign Up</button>
+              </div>
+              <img src="assets/svg/cancel.svg" alt="" class="close" />
+            </div>
+            <div class="main__form">
+              <form>
+                <fieldset class="form">
+                  <div class="form__item">
+                    <label for="firstName" class="form__title">First name*</label>
+                    <input type="text" class="form__input" id="firstName" />
+                    <span class="error-message" aria-live="assertive"></span>
+                  </div>
+                  <div class="form__item">
+                    <label for="lastName" class="form__title">Last name*</label>
+                    <input type="text" class="form__input" id="lastName" />
+                    <span class="error-message"></span>
+                  </div>
+                  <div class="form__item">
+                    <label for="phoneNumber" class="form__title"
+                      >Phone number*</label
+                    >
+                    <input type="text" class="form__input" id="phoneNumber" />
+                    <span class="error-message"></span>
+                  </div>
+                  <div class="form__item">
+                    <label for="email" class="form__title">Email*</label>
+                    <input type="text" class="form__input" id="email" />
+                    <span class="error-message"></span>
+                  </div>
+                  <div class="form__item">
+                    <label for="password" class="form__title">Password*</label>
+                    <input type="password" class="form__input" id="password" />
+                    <span class="error-message"></span>
+                  </div>
+                  <button class="form__submit button" type="button">Sign Up</button>
+                </fieldset>
+              </form>
+              <div class="social">
+                <p class="social__title via">or Sign Up via</p>
+                <button class="social__button button">
+                  <img src="assets/svg/facebook.svg" alt="">Facebook
+                </button>
+                <button class="social__button button">
+                  <img src="assets/svg/google.svg" alt="">Google
+                </button>
+                <p class="social__title">
+                  by clicking submit you agree to<br />
+                  the <span class="terms-and-conditions">Terms and Conditions</span>
+                </p>
+                <div class="social__img">
+                  <img src="assets/svg/flower.svg" alt="" />
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
