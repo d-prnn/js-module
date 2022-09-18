@@ -217,3 +217,48 @@ btnSubmit.addEventListener("click", registration);
 
 btnSignIn.addEventListener("click", changeForm);
 btnSignUp.addEventListener("click", changeForm);
+
+// add color theme
+
+const theme = document.querySelector(".theme");
+console.log(theme.value);
+
+function changeTheme() {
+  switch (theme.value) {
+    case "dark":
+      document.querySelector("body").classList.add("dark");
+      document.querySelector(".wrapper").classList.add("dark");
+      document
+        .querySelectorAll(".button")
+        .forEach((elem) => elem.classList.add("dark"));
+      document.querySelector(".content").classList.add("dark");
+      inputsArray.forEach((input) => {
+        input.classList.add("dark");
+        input.previousElementSibling.classList.add("dark");
+      });
+      btnSubmit.classList.add("dark");
+      errorMessages.forEach((error) => error.classList.add("dark"));
+      document
+        .querySelectorAll(".social__title")
+        .forEach((elem) => elem.classList.add("dark"));
+      break;
+    case "light":
+      document.querySelector("body").classList.remove("dark");
+      document.querySelector(".wrapper").classList.remove("dark");
+      document
+        .querySelectorAll(".button")
+        .forEach((elem) => elem.classList.remove("dark"));
+      document.querySelector(".content").classList.remove("dark");
+      inputsArray.forEach((input) => {
+        input.classList.remove("dark");
+        input.previousElementSibling.classList.remove("dark");
+      });
+      btnSubmit.classList.remove("dark");
+      errorMessages.forEach((error) => error.classList.remove("dark"));
+      document
+        .querySelectorAll(".social__title")
+        .forEach((elem) => elem.classList.remove("dark"));
+  }
+}
+
+theme.addEventListener("change", changeTheme);

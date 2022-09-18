@@ -8,10 +8,44 @@ body {
   background-image: url("assets/background.png");
   font-family: "Poppins", sans-serif;
 }
+body.dark {
+  background-image: none;
+  background-color: #1f1d23;
+  color: #fbfbff;
+}
 
 button {
   all: unset;
   box-sizing: border-box;
+}
+
+header {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+option,
+select {
+  all: unset;
+  appearance: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 120%;
+  padding: 10px;
+  border: 1px solid rgb(110, 108, 224);
+  color: rgb(110, 108, 224);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+option:hover,
+select:hover {
+  background-color: rgba(110, 108, 224, 0.3);
+  cursor: pointer;
 }
 
 .button {
@@ -27,6 +61,9 @@ button {
   line-height: 120%;
   color: #586870;
   cursor: pointer;
+}
+.button.dark {
+  color: #fbfbff;
 }
 
 fieldset {
@@ -45,6 +82,9 @@ input {
   border: 30px solid rgba(255, 255, 255, 0.44);
   backdrop-filter: blur(3px);
   border-radius: 40px;
+}
+.wrapper.dark {
+  border-color: rgba(71, 69, 84, 0.3137254902);
 }
 @media screen and (max-width: 1280px) {
   .wrapper {
@@ -66,6 +106,9 @@ input {
   padding: 20px 40px;
   background-color: white;
   border-radius: 10px;
+}
+.content.dark {
+  background-color: #25232b;
 }
 @media screen and (max-width: 390px) {
   .content {
@@ -149,6 +192,9 @@ input {
   line-height: 15px;
   color: #586870;
 }
+.form__title.dark {
+  color: #fbfbff;
+}
 .form__input {
   height: 34px;
   width: 100%;
@@ -158,12 +204,19 @@ input {
   border-radius: 8px;
   color: #586870;
 }
+.form__input.dark {
+  color: #fbfbff;
+  background-color: transparent;
+}
 .form__submit {
   margin: 0 auto;
   color: white;
   background: linear-gradient(180deg, rgba(110, 108, 224, 0.3) 0%, rgba(77, 76, 173, 0.3) 100%);
   border-radius: 8px;
   transition: all 0.5s;
+}
+.form__submit.dark {
+  background: linear-gradient(180deg, rgba(110, 108, 224, 0.6) 0%, rgba(77, 76, 173, 0.6) 100%);
 }
 .form__submit:hover {
   background: linear-gradient(180deg, rgb(110, 108, 224) 0%, rgb(77, 76, 173) 100%);
@@ -178,6 +231,9 @@ input {
   padding: 5px 0;
   font-size: 10px;
   color: rebeccapurple;
+}
+.error-message.dark {
+  color: #fbfbff;
 }
 
 .social {
@@ -204,10 +260,11 @@ input {
   font-weight: 400;
   font-size: 10px;
   line-height: 15px;
-  /* identical to box height */
   text-align: center;
-  /* grey/dark */
   color: #586870;
+}
+.social__title.dark {
+  color: #fbfbff;
 }
 .social__button {
   min-width: 100%;
@@ -215,6 +272,9 @@ input {
   background: #ffffff;
   border: 1px solid #5957ba;
   border-radius: 8px;
+}
+.social__button.dark {
+  background: transparent;
 }
 .social__img {
   margin: 0 auto;
