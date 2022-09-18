@@ -10,3 +10,4 @@ This is a simple form.
 ✔ Checks the empty fields, the correctness of typing the fields.
 ✔ Changes appearance when you press the Sign In and Sign Up buttons.
 ✔ Registration confirmation after correct of typing the fields (message on the screen).
+✔ There is a dark/light theme.
