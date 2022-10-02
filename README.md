@@ -13,3 +13,10 @@ This is a simple form.
 ✔ There is a dark/light theme.
 
 Week16: https://d-prnn.github.io/js-module/week16/
+
+Week17: https://d-prnn.github.io/js-module/week17/
+Service comment with spam filter.
+✔ Check name field. Removing extra spaces, capital letter at the beginning of the name.
+✔ Replacing words with "\*\*\*".
+✔ Removing over 5 messages.
+✔ Small task with array.
