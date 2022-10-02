@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(251, 247, 247);
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1440px;
+  min-height: 100vh;
+  padding: 20px 40px;
+}
+.wrapper_colored {
+  background-color: rgb(29, 29, 29);
+}
+
+main {
+  display: flex;
+  gap: 80px;
+}
+
+section {
+  flex: 1 1 50%;
+}
+
+h2 {
+  letter-spacing: 0.1rem;
+  color: cornflowerblue;
+}
+
+.hidden {
+  display: none;
+}
+
+.author {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+}
+
+.author > label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+input[name=author] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 3px dashed cornflowerblue;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+}
+input[name=author]:checked {
+  border: 3px solid cornflowerblue;
+  background-color: cornflowerblue;
+}
+
+.name {
+  margin-top: 40px;
+}
+
+input[name=name],
+input[name=name]:focus,
+input[name=name]:active {
+  all: unset;
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+  line-height: 200%;
+  background-color: transparent;
+  border-color: cornflowerblue;
+  border: 3px dashed cornflowerblue;
+}
+
+.comment {
+  margin: 40px 0px;
+}
+
+textarea[name=comment],
+textarea[name=comment]:focus,
+textarea[name=comment]:active {
+  all: unset;
+  width: 100%;
+  height: 200px;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-color: cornflowerblue;
+  border: 3px dashed cornflowerblue;
+}
+
+.button {
+  all: unset;
+  padding: 10px 20px;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  background-color: cornflowerblue;
+}
+
+.messages {
+  overflow-y: scroll;
+  height: 70%;
+}
+
+.messages::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.messages::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 148, 237, 0.421);
+  outline: 1px solid cornflowerblue;
+}
+
+.message {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: auto;
+  border-bottom: 3px dashed cornflowerblue;
+}
+.message_name {
+  grid-area: 1/1/2/2;
+  font-weight: 700;
+  color: cornflowerblue;
+}
+.message_time {
+  grid-area: 1/2/2/3;
+  justify-self: flex-end;
+  color: cornflowerblue;
+}
+.message_text {
+  grid-area: 2/1/3/3;
+  text-align: justify;
+}/*# sourceMappingURL=style.css.map */

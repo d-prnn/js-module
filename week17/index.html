@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week17</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper_colored">
+      <div class="wrapper">
+        <header>
+          <h1>Week17, Comment service with spam filter</h1>
+        </header>
+        <main>
+          <section>
+            <h2>Leave a comment</h2>
+            <div class="author">
+              <span>Show your name?</span>
+              <label for="yes"
+                >Yes<input type="radio" name="author" value="yes" id="yes"
+              /></label>
+              <label for="no"
+                >No<input type="radio" name="author" value="no" id="no"
+              /></label>
+            </div>
+            <div class="name">
+              <label for="name">Please, leave your full name:</label>
+              <input type="text" id="name" name="name" />
+            </div>
+            <div class="comment">
+              <p>Leave a comment:</p>
+              <textarea name="comment" id="comment"></textarea>
+              <button class="button" type="button" id="send">Send</button>
+            </div>
+          </section>
+          <section class="chat">
+            <h2>Chat</h2>
+            <div class="messages"></div>
+          </section>
+        </main>
+        <footer>
+          <button class="button" id="random">Get random num</button>
+          <p id="array"></p>
+          <p id="min"></p>
+          <p id="max"></p>
+          <p id="average"></p>
+          <p id="sum"></p>
+          <p id="multiply"></p>
+        </footer>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
