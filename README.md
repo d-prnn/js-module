@@ -20,3 +20,6 @@ Service comment with spam filter.
 ✔ Replacing words with "\*\*\*".
 ✔ Removing over 5 messages.
 ✔ Small task with array.
+
+Week18: https://d-prnn.github.io/js-module/week18/
+HTML5 validation.
