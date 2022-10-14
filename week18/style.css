@@ -1,0 +1,113 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div {
+  margin: 10px 0;
+}
+
+fieldset {
+  margin: 10px auto;
+  max-width: 70%;
+}
+
+fieldset > fieldset {
+  max-width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+input {
+  padding: 5px 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type="text"]:required:valid,
+input[type="tel"]:required:valid,
+input[type="email"]:required:valid {
+  border: 2px double green;
+  box-shadow: 3px 3px greenyellow;
+}
+
+input[type="radio"] {
+  appearance: none;
+
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  border: 2px solid green;
+  transition: 0.3s ease-in-out;
+}
+
+input[type="radio"]:hover {
+  transform: scale(1.2);
+  border: 4px double green;
+}
+
+input[type="radio"]:checked {
+  border: 2px solid green;
+  box-shadow: 3px 3px green;
+
+  background-color: greenyellow;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid green;
+  transition: 0.3s ease-in-out;
+}
+
+input[type="checkbox"]:hover {
+  transform: scale(1.2);
+  border: 4px double green;
+}
+
+input[type="checkbox"]:checked {
+  border: 2px solid green;
+  box-shadow: 3px 3px green;
+
+  background-color: greenyellow;
+}
+
+select {
+  padding: 5px 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+option {
+  padding: 5px 10px;
+}
+
+option:focus {
+  background-color: greenyellow;
+}
+
+button {
+  padding: 5px 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  border: 2px solid green;
+
+  background-color: greenyellow;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: green;
+  color: white;
+}
+
+button:active {
+  box-shadow: 3px 3px greenyellow;
+}
