@@ -199,9 +199,9 @@ function changeForm(event) {
         input.value = "";
         input.nextElementSibling.textContent = "";
       });
-      passwordELements.forEach((inp) => {
-        inp.classList.add("hidden");
-      });
+      for (let i = 1; i < passwordELements.length; i++) {
+        passwordELements[i].classList.add("hidden");
+      }
       break;
     case "sign-up":
       btnSignUp.classList.add("active");
@@ -221,9 +221,9 @@ function changeForm(event) {
         input.value = "";
         input.nextElementSibling.textContent = "";
       });
-      passwordELements.forEach((inp) => {
-        inp.classList.remove("hidden");
-      });
+      for (let i = 1; i < passwordELements.length; i++) {
+        passwordELements[i].classList.remove("hidden");
+      }
       break;
   }
 }
