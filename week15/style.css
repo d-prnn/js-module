@@ -76,6 +76,20 @@ input {
   box-sizing: border-box;
 }
 
+p[aria-describedby=password] {
+  font-size: 10px;
+  color: #586870;
+}
+
+p[aria-describedby=password] > span {
+  display: inline-block;
+  width: 10px;
+}
+
+p[aria-describedby=password]:last-child {
+  margin-bottom: 10px;
+}
+
 .wrapper {
   width: 43.75%;
   margin: 20px auto;
@@ -288,4 +302,4 @@ input {
   font-weight: 600;
   text-decoration: underline;
   cursor: pointer;
-}
+}/*# sourceMappingURL=style.css.map */

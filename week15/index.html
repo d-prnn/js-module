@@ -34,30 +34,35 @@
                 <fieldset class="form">
                   <div class="form__item">
                     <label for="firstName" class="form__title">First name*</label>
-                    <input type="text" class="form__input" id="firstName" />
-                    <span class="error-message" aria-live="assertive"></span>
+                    <input type="text" class="form__input" id="firstName" autocomplete="name" aria-required="true"/>
+                    <span class="error-message" aria-describedby="fisrtName" aria-live="polite"></span>
                   </div>
                   <div class="form__item">
                     <label for="lastName" class="form__title">Last name*</label>
-                    <input type="text" class="form__input" id="lastName" />
-                    <span class="error-message"></span>
+                    <input type="text" class="form__input" id="lastName" autocomplete="family-name" aria-required="true"/>
+                    <span class="error-message" aria-describedby="lastName" aria-live="polite"></span>
                   </div>
                   <div class="form__item">
                     <label for="phoneNumber" class="form__title"
                       >Phone number*</label
                     >
-                    <input type="text" class="form__input" id="phoneNumber" />
-                    <span class="error-message"></span>
+                    <input type="tel" class="form__input" id="phoneNumber" autocomplete="tel" aria-required="true"/>
+                    <span class="error-message" aria-describedby="phoneNumber" aria-live="assertive"></span>
                   </div>
                   <div class="form__item">
                     <label for="email" class="form__title">Email*</label>
-                    <input type="text" class="form__input" id="email" />
-                    <span class="error-message"></span>
+                    <input type="email" class="form__input" id="email" autocomplete="email" aria-required="true"/>
+                    <span class="error-message" aria-describedby="email" aria-live="assertive"></span>
                   </div>
                   <div class="form__item">
                     <label for="password" class="form__title">Password*</label>
-                    <input type="password" class="form__input" id="password" />
-                    <span class="error-message"></span>
+                    <input type="password" class="form__input" id="password" autocomplete="new-password" aria-required="true"/>
+                    <span class="error-message" aria-describedby="password" aria-live="assertive"></span>
+                    <p aria-describedby="password" id="length"><span></span>Password has to contain at least 8 symbols</p>
+                    <p aria-describedby="password" id="capital"><span></span>At least one capital letter</p>
+                    <p aria-describedby="password" id="lowercase"><span></span>At least one lowercase letter</p>
+                    <p aria-describedby="password" id="numbers"><span></span>At least one number</p>
+                    <p aria-describedby="password" id="symbols"><span></span>At least one symbol of these [-#!$@%^&*_+~=:;?.,]</p>
                   </div>
                   <button class="form__submit button" type="button">Sign Up</button>
                 </fieldset>
