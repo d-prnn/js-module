@@ -20,3 +20,5 @@ Service comment with spam filter.
 ✔ Replacing words with "\*\*\*".
 ✔ Removing over 5 messages.
 ✔ Small task with array.
+✔ Keep avatar link and username in localStorage, when user chooses to show his/her name.
+✔ When avatar field is empty string or it isn't a .jpeg / .jpg / .webp / .png format, avatar is a cute animal.
