@@ -22,3 +22,6 @@ Service comment with spam filter.
 ✔ Small task with array.
 ✔ Keep avatar link and username in localStorage, when user chooses to show his/her name.
 ✔ When avatar field is empty string or it isn't a .jpeg / .jpg / .webp / .png format, avatar is a cute animal.
+
+Week18: https://d-prnn.github.io/js-module/week18/
+HTML5 validation.

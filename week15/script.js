@@ -26,7 +26,8 @@ toArray(inputs, inputsArray);
 function registration(event) {
   if (
     inputsArray.every((input) => input.nextElementSibling.textContent === "") &&
-    inputsArray.every((input) => input.value !== "")
+    inputsArray.every((input) => input.value !== "") &&
+    passwordIsCorrect
   ) {
     confirm();
   } else {
@@ -94,7 +95,6 @@ function checkPhone(event) {
       return (event.target.value = "+" + event.target.value.slice(1)); // для нероссийских номеров начинать с +
     }
   }
-  console.log(event.target.value.length);
 }
 
 function checkPhoneLength(event) {
@@ -105,61 +105,77 @@ function checkPhoneLength(event) {
   } else {
     event.target.nextElementSibling.textContent = "";
   }
-  console.log(event.target.value.length);
 }
 
 function checkEmail(event) {
-  if (event.target.value.includes("@")) {
-    console.log(event.target.value.includes("@"));
+  let result = event.target.value;
+  if (result.includes("@")) {
     event.target.nextElementSibling.textContent = "";
-    if (
-      event.target.value.endsWith(".com") ||
-      event.target.value.endsWith(".ru")
-    ) {
+    if (result.match(/^(.+)@(.+)\.(.+)$/)) {
       event.target.nextElementSibling.textContent = "";
     } else {
-      event.target.nextElementSibling.textContent += "❗ Invalid domain";
+      event.target.nextElementSibling.textContent = "❗ Please, correct email";
     }
   } else {
     event.target.nextElementSibling.textContent = "❗ Email must contain @";
   }
 }
 
+let passwordELements = document.querySelectorAll(
+  '[aria-describedby="password"]'
+);
+const length = document.querySelector("#length");
+const capital = document.querySelector("#capital");
+const lowercase = document.querySelector("#lowercase");
+const numbers = document.querySelector("#numbers");
+const symbols = document.querySelector("#symbols");
+
+let passwordIsCorrect = false;
+
 function checkPassword(event) {
   let result = event.target.value;
 
-  if (result.length > 7) {
+  if (result.length >= 1) {
     event.target.nextElementSibling.textContent = "";
-
-    if (result.match(/[a-z]/g) !== null) {
-      event.target.nextElementSibling.textContent = "";
-
-      if (result.match(/[A-Z]/g) !== null) {
-        event.target.nextElementSibling.textContent = "";
-
-        if (result.match(/\d/g) !== null) {
-          event.target.nextElementSibling.textContent = "";
-
-          if (result.match(/[-#!$@%^&*_+~=:;?\.,]/g) !== null) {
-            event.target.nextElementSibling.textContent = "";
-          } else {
-            event.target.nextElementSibling.textContent =
-              "❗ Password must contain at least one symbol [-#!$@%^&*_+~=:;?.,]";
-          }
-        } else {
-          event.target.nextElementSibling.textContent =
-            "❗ Password must contain at least one number";
-        }
-      } else {
-        event.target.nextElementSibling.textContent =
-          "❗ Password must contain at least one capital";
-      }
-    } else {
-      event.target.nextElementSibling.textContent =
-        "❗ Password must contain at least one lowercase letter";
-    }
   } else {
-    event.target.nextElementSibling.textContent = "❗ Password is too short";
+    event.target.nextElementSibling.textContent = "❗ Required field";
+  }
+  if (result.length > 7) {
+    length.firstChild.textContent = " ✔ ";
+  } else {
+    length.firstChild.textContent = " ❗ ";
+  }
+  if (result.match(/[a-z]/g) !== null) {
+    lowercase.firstChild.textContent = " ✔ ";
+  } else {
+    lowercase.firstChild.textContent = " ❗ ";
+  }
+  if (result.match(/[A-Z]/g) !== null) {
+    capital.firstChild.textContent = " ✔ ";
+  } else {
+    capital.firstChild.textContent = " ❗ ";
+  }
+  if (result.match(/\d/g) !== null) {
+    numbers.firstChild.textContent = " ✔ ";
+  } else {
+    numbers.firstChild.textContent = " ❗ ";
+  }
+  if (result.match(/[-#!$@%^&*_+~=:;?\.,]/g) !== null) {
+    symbols.firstChild.textContent = " ✔ ";
+  } else {
+    symbols.firstChild.textContent = " ❗ ";
+  }
+
+  if (
+    result.length > 7 &&
+    result.match(/[a-z]/g) !== null &&
+    result.match(/[A-Z]/g) !== null &&
+    result.match(/\d/g) !== null &&
+    result.match(/[-#!$@%^&*_+~=:;?\.,]/g) !== null
+  ) {
+    passwordIsCorrect = true;
+  } else {
+    passwordIsCorrect = false;
   }
 }
 
@@ -172,7 +188,7 @@ function changeForm(event) {
       lastName.parentElement.classList.add("hidden");
       phoneNumber.parentElement.classList.add("hidden");
       email.removeEventListener("change", checkEmail);
-      password.removeEventListener("change", checkPassword);
+      password.removeEventListener("input", checkPassword);
       btnSubmit.removeEventListener("click", registration);
       btnSubmit.textContent = "Sign In";
       document.querySelector(".via").textContent = "or Sign In via";
@@ -183,6 +199,9 @@ function changeForm(event) {
         input.value = "";
         input.nextElementSibling.textContent = "";
       });
+      for (let i = 1; i < passwordELements.length; i++) {
+        passwordELements[i].classList.add("hidden");
+      }
       break;
     case "sign-up":
       btnSignUp.classList.add("active");
@@ -191,7 +210,7 @@ function changeForm(event) {
       lastName.parentElement.classList.remove("hidden");
       phoneNumber.parentElement.classList.remove("hidden");
       email.addEventListener("change", checkEmail);
-      password.addEventListener("change", checkPassword);
+      password.addEventListener("input", checkPassword);
       btnSubmit.addEventListener("click", registration);
       btnSubmit.textContent = "Sign Up";
       document.querySelector(".via").textContent = "or Sign Up via";
@@ -202,6 +221,9 @@ function changeForm(event) {
         input.value = "";
         input.nextElementSibling.textContent = "";
       });
+      for (let i = 1; i < passwordELements.length; i++) {
+        passwordELements[i].classList.remove("hidden");
+      }
       break;
   }
 }
@@ -210,8 +232,8 @@ firstName.addEventListener("input", checkName);
 lastName.addEventListener("input", checkName);
 phoneNumber.addEventListener("input", checkPhone);
 phoneNumber.addEventListener("change", checkPhoneLength);
-email.addEventListener("change", checkEmail);
-password.addEventListener("change", checkPassword);
+email.addEventListener("input", checkEmail);
+password.addEventListener("input", checkPassword);
 
 btnSubmit.addEventListener("click", registration);
 
@@ -221,7 +243,6 @@ btnSignUp.addEventListener("click", changeForm);
 // add color theme
 
 const theme = document.querySelector(".theme");
-console.log(theme.value);
 
 function changeTheme() {
   switch (theme.value) {

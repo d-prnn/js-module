@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Анкета хозяина</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- action, method, enctype указаны для валидатора, без них выдает ошибку -->
+    <!-- <form action="send.php" method="post" enctype="multipart/form-data"> -->
+    <form>
+      <fieldset>
+        <legend>Анкета хозяина</legend>
+        <fieldset>
+          <legend>О владельце</legend>
+          <div>
+            <label for="user-name">Имя*:</label>
+            <input
+              type="text"
+              id="user-name"
+              name="user-name"
+              required
+              pattern="^[a-zA-Zа-яА-ЯёЁ]{1,}$"
+              autocomplete="name"
+            />
+          </div>
+          <div>
+            <label for="surname">Фамилия*:</label>
+            <input
+              type="text"
+              id="surname"
+              name="user-surname"
+              required
+              pattern="^[a-zA-Zа-яА-ЯёЁ]{1,}$"
+              autocomplete="family-name"
+            />
+          </div>
+          <div>
+            <label for="phone"
+              >Ваш телефон в формате +Х (ХХХ) ХХХ-ХХ-ХХ*:</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="user-phone"
+              required
+              pattern="^\+\d{1,3}[\s][\(\s)]{0,1}\d{3}[\)\s]{0,1}[-\s]\d{3}[-\s]\d{2}[-\s]\d{2}$"
+              autocomplete="tel"
+            />
+          </div>
+          <div>
+            <label for="email">Ваша электронная почта*:</label>
+            <input
+              type="email"
+              id="email"
+              name="user-email"
+              required
+              pattern="^(.+)@(.+)$"
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>О питомце</legend>
+          <div>
+            <label for="name-pet">Кличка питомца*:</label>
+            <input
+              type="text"
+              id="name-pet"
+              name="name-pet"
+              required
+              pattern="^[a-zA-Zа-яА-ЯёЁ]{1,}$"
+            />
+          </div>
+          <div>
+            <span aria-describedby="male female">Пол вашего питомца*:</span>
+            <input
+              type="radio"
+              id="male"
+              name="gender-pet"
+              value="male"
+              required
+            />
+            <label for="male">Самец</label>
+            <input type="radio" id="female" name="gender-pet" value="female" />
+            <label for="female">Самка</label>
+          </div>
+          <div>
+            <label for="breed">Выберите породу вашего питомца:</label>
+            <select name="breed" id="breed">
+              <option value="1">Сибирская кошка</option>
+              <option value="2">Британская кошка</option>
+              <option value="3">Персидская кошка</option>
+              <option value="4">Шотландская вислоухая кошка</option>
+              <option value="5">Мейн-кун</option>
+              <option value="6">Сфинкс</option>
+              <option value="7">Кошка-компаньон (без породы)</option>
+              <option value="7">Другая порода (укажите в комментарии)</option>
+            </select>
+          </div>
+          <div>
+            <span aria-describedly="food-1 food-2 food-3"
+              >Чем питается ваш питомец? (можно выбрать несколько)
+            </span>
+            <input type="checkbox" id="food-1" name="food" value="Сухой корм" />
+            <label for="food-1">Сухой корм</label>
+            <input
+              type="checkbox"
+              id="food-2"
+              name="food"
+              value="Влажный корм"
+            />
+            <label for="food-2">Влажный корм</label>
+            <input
+              type="checkbox"
+              id="food-3"
+              name="food"
+              value="Натуральный корм"
+            />
+            <label for="food-3">Натуральный корм</label>
+          </div>
+          <div>
+            <p>Комментарий владельца:</p>
+            <textarea
+              name="comment"
+              id="comments"
+              cols="50"
+              rows="10"
+            ></textarea>
+          </div>
+          <div>
+            <span>Загрузить фотографию питомца:</span>
+            <input
+              type="file"
+              name="photo-pet"
+              id="photo-pet"
+              accept="image/*"
+            />
+          </div>
+        </fieldset>
+        <div>
+          <button type="submit">Сохранить</button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
