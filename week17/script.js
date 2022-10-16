@@ -1,8 +1,10 @@
 // field leave comment
+const showAuthor = document.querySelectorAll('[name="author"]');
 const yes = document.querySelector("#yes");
 const no = document.querySelector("#no");
 const nameField = document.querySelector(".name");
 const nameInput = document.querySelector("#name");
+const avatarInput = document.querySelector("#avatar");
 const textarea = document.querySelector("#comment");
 const sendBtn = document.querySelector("#send");
 
@@ -14,14 +16,38 @@ const messages = document.querySelector(".messages");
 let checkAuthor = (event) => {
   if (event.target.value === "no") {
     nameField.classList.add("hidden");
+    nameInput.value = "";
+    avatarInput.value = "";
   } else if (event.target.value === "yes") {
     nameField.classList.remove("hidden");
+    nameInput.value = localStorage.getItem("username");
+    avatarInput.value = localStorage.getItem("avatar");
   }
 };
 
 yes.checked = true;
 yes.addEventListener("change", checkAuthor);
 no.addEventListener("change", checkAuthor);
+
+// localStorage
+
+function setStorage() {
+  if (yes.checked) {
+    localStorage.setItem("username", nameInput.value);
+    localStorage.setItem("avatar", avatarInput.value);
+  }
+}
+
+function getStorage() {
+  if (yes.checked) {
+    nameInput.value = localStorage.getItem("username");
+    avatarInput.value = localStorage.getItem("avatar");
+  }
+}
+
+nameInput.addEventListener("change", setStorage);
+avatarInput.addEventListener("change", setStorage);
+window.addEventListener("DOMContentLoaded", getStorage);
 
 // check name field
 
@@ -54,12 +80,43 @@ let checkMessage = (str) => {
   return str;
 };
 
+// avatar
+
+let avatarCollection = [
+  "assets/bear.png",
+  "assets/bee.png",
+  "assets/bird.png",
+  "assets/cat.png",
+  "assets/monkey.png",
+  "assets/penguin.png",
+];
+
+function getRandomImg() {
+  let randomNum =
+    Math.floor(Math.random() * (avatarCollection.length - 1 - 0 + 1)) + 0;
+  return avatarCollection[randomNum];
+}
+
 // send message
 
 let createMessage = () => {
   let message = document.createElement("div");
   message.className = "message";
   messages.prepend(message);
+
+  // avatar
+  let messageAvatar = document.createElement("img");
+  messageAvatar.className = "message_avatar";
+  if (
+    avatarInput.value !== "" &&
+    /^(https:).+(\.png|\.jpg|\.jpeg|\.svg|\.webp)$/.test(avatarInput.value)
+  ) {
+    messageAvatar.src = avatarInput.value;
+  } else {
+    messageAvatar.src = getRandomImg();
+  }
+  message.append(messageAvatar);
+
   // username
   let messageUserName = document.createElement("p");
   messageUserName.className = "message_name";

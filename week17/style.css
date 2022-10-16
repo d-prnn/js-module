@@ -9,7 +9,6 @@ body {
 }
 
 .wrapper {
-  max-width: 1440px;
   min-height: 100vh;
   padding: 20px 40px;
 }
@@ -48,7 +47,8 @@ h2 {
   gap: 5px;
 }
 
-input[name=author] {
+input[name=author],
+input[name=avatar] {
   appearance: none;
   width: 24px;
   height: 24px;
@@ -56,18 +56,23 @@ input[name=author] {
   transition: 0.2s all linear;
   margin-right: 5px;
 }
-input[name=author]:checked {
+input[name=author]:checked,
+input[name=avatar]:checked {
   border: 3px solid cornflowerblue;
   background-color: cornflowerblue;
 }
 
-.name {
+.name,
+.avatar {
   margin-top: 40px;
 }
 
 input[name=name],
 input[name=name]:focus,
-input[name=name]:active {
+input[name=name]:active,
+input[name=avatar],
+input[name=avatar]:focus,
+input[name=avatar]:active {
   all: unset;
   width: 100%;
   margin: 10px 0;
@@ -120,23 +125,37 @@ textarea[name=comment]:active {
   outline: 1px solid cornflowerblue;
 }
 
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
 .message {
+  margin: 20px 0;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 80px 2fr 1fr;
   grid-auto-rows: auto;
   border-bottom: 3px dashed cornflowerblue;
 }
-.message_name {
+.message_avatar {
+  padding-right: 20px;
   grid-area: 1/1/2/2;
+}
+.message_name {
+  margin: 0;
+  grid-area: 1/2/2/3;
+  align-self: center;
   font-weight: 700;
   color: cornflowerblue;
 }
 .message_time {
-  grid-area: 1/2/2/3;
+  margin: 0;
+  grid-area: 1/3/2/4;
   justify-self: flex-end;
+  align-self: center;
   color: cornflowerblue;
 }
 .message_text {
-  grid-area: 2/1/3/3;
+  grid-area: 2/1/3/4;
   text-align: justify;
 }/*# sourceMappingURL=style.css.map */
