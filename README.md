@@ -30,3 +30,6 @@ Week20: https://d-prnn.github.io/js-module/week20/
 Page about superheroes.
 ✔ Work with JSON.
 ✔ Popup with information about superheroes.
+
+Week20, task2: https://d-prnn.github.io/js-module/week20-2/
+Create app with The Metropolitan Museum of Art Collection API.
