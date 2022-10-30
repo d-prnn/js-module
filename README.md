@@ -26,7 +26,7 @@ Service comment with spam filter.
 Week18: https://d-prnn.github.io/js-module/week18/
 HTML5 validation.
 
-Week18: https://d-prnn.github.io/js-module/week20/
+Week20: https://d-prnn.github.io/js-module/week20/
 Page about superheroes.
 ✔ Work with JSON.
 ✔ Popup with information about superheroes.
