@@ -11,7 +11,7 @@
   <body>
     <!-- action, method, enctype указаны для валидатора, без них выдает ошибку -->
     <!-- <form action="send.php" method="post" enctype="multipart/form-data"> -->
-    <form novalidate>
+    <form id="formCatAndOwner">
       <fieldset>
         <legend>Анкета хозяина</legend>
         <fieldset>
@@ -88,8 +88,8 @@
             <label for="female">Самка</label>
           </div>
           <div>
-            <label for="breed">Выберите породу вашего питомца:</label>
-            <select name="breed" id="breed">
+            <label for="breed">Выберите породу вашего питомца*:</label>
+            <select name="breed" id="breed" required>
               <option value="Сибирская кошка">Сибирская кошка</option>
               <option value="Британская кошка">Британская кошка</option>
               <option value="Персидская кошка">Персидская кошка</option>
@@ -147,7 +147,7 @@
           </div>
         </fieldset>
         <div>
-          <button type="button">Сохранить</button>
+          <button type="submit">Сохранить</button>
         </div>
       </fieldset>
     </form>
