@@ -29,6 +29,22 @@ function registration(event) {
     inputsArray.every((input) => input.value !== "") &&
     passwordIsCorrect
   ) {
+    let user = {
+      userFirstName: firstName.value,
+      userLastName: lastName.value,
+      userPhone: phoneNumber.value,
+      userEmail: email.value,
+      userPassword: password.value,
+    };
+    fetch("https://httpbin.org/post", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((user) => console.log(user.json));
     confirm();
   } else {
     checkInputs();
