@@ -1,4 +1,7 @@
-const submit = document.querySelector("button[type=button]");
+const submit = document.querySelector("button[type=submit]");
+
+const form = document.querySelector("#formCatAndOwner");
+let inputs = document.querySelectorAll("input[required]");
 
 // owner
 const userName = document.querySelector("#user-name");
@@ -48,7 +51,8 @@ function checkGroup(collection) {
   return arr;
 }
 
-function savePet() {
+function savePet(event) {
+  event.preventDefault();
   const pet = new Cat(
     petName.value,
     checkGroup(petSex),
@@ -58,7 +62,25 @@ function savePet() {
     petPhoto.value,
     saveOwner()
   );
-  console.log(pet);
+
+  let isFormFull = true;
+
+  inputs.forEach((input) => {
+    if (input.value === "") isFormFull = false;
+  });
+
+  if (isFormFull) {
+    fetch("https://httpbin.org/post", {
+      method: "POST",
+      body: new FormData(form),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  } else {
+    alert(
+      "Пожалуйста, заполните все обязательные поля (они отмечены знаком звездочка*)"
+    );
+  }
 }
 
 function saveOwner() {
